@@ -28,6 +28,35 @@ app.get('/api/operacion/:num1:operator:num2', (req, res) => {
     res.send(result.toString())
 })
 
+app.post('/api',  (req, res) => {
+    console.log('Post Request received');
+    // TODO Create new element
+    res.json({
+        result: 'ok',
+        body: req.body
+    })
+})
+
+app.put('/api/:id',  (req, res) => {
+    console.log('Put Request received');
+    // TODO UPDATE element with id equal to req.params.id
+    res.json({
+        result: 'ok',
+        id: req.params.id,
+        new: req.body
+    })
+})
+
+app.delete('/api/:id',  (req, res) => {
+    console.log('Delete Request received');
+
+    // TODO Delete element with id equal to req.params.id
+
+    res.json({
+        result: 'ok',
+        id: req.params.id
+    })
+})
 
 
 
