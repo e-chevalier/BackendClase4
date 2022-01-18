@@ -40,6 +40,7 @@ class Contenedor {
         try {
             const productos = await this.getAll()
             const max = await this.getMaxid()
+            obj.price = Number(obj.price)
             productos.push({...obj, id: max + 1})
             await fs.promises.writeFile(this.fileName, JSON.stringify(productos, null, 2))
             return max + 1
@@ -130,6 +131,7 @@ class Contenedor {
             let index = productos.findIndex(prod => prod.id == id)
             if ( index >= 0) {
                 prod.id = id
+                prod.price = Number(prod.price)
                 productos[index] = prod
                 await fs.promises.writeFile(this.fileName, JSON.stringify(productos))
             }  
